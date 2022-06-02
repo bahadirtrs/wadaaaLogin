@@ -1,7 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-
 const SubmitButton = (props) => {
   return (
     <TouchableOpacity style={[styles.buttonContainer,{backgroundColor:props.backgroundColor}]} >

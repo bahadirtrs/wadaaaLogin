@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Logo from '../../../components/Logo'
-const primaryColor ='#143267'
+import { Logo } from '../../../components'
+import {colors} from '../../../utils/theme'
 
 const Header = () => {
   return (
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     headerContainer:{
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor:primaryColor,
+        backgroundColor:colors.primaryColor,
         paddingVertical:15,
         borderBottomRightRadius:60,
         borderBottomLeftRadius:60

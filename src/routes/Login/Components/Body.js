@@ -1,11 +1,8 @@
 import { StyleSheet, View, Alert } from 'react-native'
 import React,{ useState } from 'react'
-const primaryColor ='#143267'
-const secondColor ='#306fd5'
+import {colors} from '../../../utils/theme'
 // components
-import MyTextInput from '../../../components/MyTextInput'
-import TextButton from '../../../components/TextButton'
-import SubmitButton from '../../../components/SubmitButton'
+import {MyTextInput, TextButton, SubmitButton} from '../../../components'
 
 const Body = () => {
     const [emailInput, setEmailInput] = useState('')
@@ -31,8 +28,8 @@ const Body = () => {
             title={'Forget Password?'} 
             onPress={()=>Alert.alert('İşlem Başarılı', "Yeni şifreniz email adresinize gönderildi")} 
         />
-        <SubmitButton title={'Login'} backgroundColor={primaryColor} />
-        <SubmitButton title={'Sign Up'} backgroundColor={secondColor} />
+        <SubmitButton title={'Login'} backgroundColor={colors.primaryColor} />
+        <SubmitButton title={'Sign Up'} backgroundColor={colors.secondColor} />
     </View>
   )
 }
