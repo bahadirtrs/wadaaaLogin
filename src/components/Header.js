@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { Logo } from '../../../components'
-import {colors} from '../../../utils/theme'
+import { Logo } from './index'
+import { colors } from '../utils/theme'
 
-const Header = () => {
+const Header = ({title}) => {
   return (
     <View style={styles.headerContainer}>
         <Logo/>
-        <Text style={styles.headerTitle}> LOGIN </Text>
+        <Text style={styles.headerTitle}> {title} </Text>
     </View>
   )
 }

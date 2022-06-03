@@ -2,20 +2,23 @@ import { StyleSheet, View, Alert } from 'react-native'
 import React,{ useState } from 'react'
 import {colors} from '../../../utils/theme'
 // components
-import {MyTextInput, TextButton, SubmitButton} from '../../../components'
-import RequestManager from '../../../utils/RequestManager'
+import {MyTextInput, SubmitButton} from '../../../components'
 
 const Body = () => {
+    const [name, setName] = useState('')
     const [emailInput, setEmailInput] = useState('')
     const [passwordInput, setPasswordInput] = useState('')
+    const [passwordRepeatInput, setPasswordRepeatInput] = useState('')
 
-    const LogIn = () =>{
-        (emailInput?.length>5 && passwordInput?.length>8)
-            ? Alert.alert("Email : "+emailInput, "Password: "+passwordInput)
-            : Alert.alert("Lüften bilgilerinizi giriniz", "Girilen bilgilerin doğruluğundan emin olunuz")
+    const signUp = () =>{
+        (emailInput?.length>5 && name?.length>8)
+            ? passwordInput?.length==passwordRepeatInput?.length
+                ? Alert.alert("Name : "+name, "Email: "+emailInput)
+                : Alert.alert("Parolalar Uyuşmuyor", "Lütfen parola ve parola tekrarı alanını kontrol ediniz")
+            : Alert.alert("Lüften bilgilerinizi giriniz", "Girilen bilgilerin yeterli olduğundan emin olunuz")
     }
 
-    const _getLogin = ()=>{
+    const _getSignUp = ()=>{
         RequestManager({
 			method: 'POST',
 			url: "",
@@ -31,6 +34,13 @@ const Body = () => {
   return (
     <View style={styles.bodyContainer} >
         <MyTextInput
+            value={name}
+            onChangeText= {(term)=>setName(term)}
+            placeholder={'Name or Surname'}
+            iconSource = {require('../../../assets/icon/username.png')}
+            secureTextEntry={false}
+        />
+        <MyTextInput
             value={emailInput}
             onChangeText= {(term)=>setEmailInput(term)}
             placeholder={'Email Adress'}
@@ -44,11 +54,15 @@ const Body = () => {
             iconSource = {require('../../../assets/icon/pass.png')}
             secureTextEntry={true}
         />
-        <TextButton 
-            title={'Forget Password?'} 
-            onPress={()=>Alert.alert('İşlem Başarılı', "Yeni şifreniz email adresinize gönderildi")} 
+         <MyTextInput
+            value={passwordRepeatInput}
+            onChangeText= {(term)=>setPasswordRepeatInput(term)}
+            placeholder={'Password Repeat'}
+            iconSource = {require('../../../assets/icon/pass.png')}
+            secureTextEntry={true}
         />
-        <SubmitButton title={'Login'} backgroundColor={colors.primaryColor} onPress={()=>LogIn()} />
+
+        <SubmitButton title={'Sign Up'} backgroundColor={colors.secondColor} onPress={()=>signUp()} />
     </View>
   )
 }

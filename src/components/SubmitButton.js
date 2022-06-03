@@ -3,7 +3,7 @@ import React from 'react'
 
 const SubmitButton = (props) => {
   return (
-    <TouchableOpacity style={[styles.buttonContainer,{backgroundColor:props.backgroundColor}]} >
+    <TouchableOpacity style={[styles.buttonContainer,{backgroundColor:props.backgroundColor}]} onPress={props.onPress} >
       <Text style={styles.titleStyle} >{props.title}</Text>
     </TouchableOpacity>
   )
