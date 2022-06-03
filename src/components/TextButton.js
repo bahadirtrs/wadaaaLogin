@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, Alert } from 'react-native'
 import React from 'react'
-import {colors} from '../utils/theme'
+import { colors } from '../utils/theme'
 
 const TextButton = (props) =>
     <TouchableOpacity style={styles.forgetContainer} onPress={props.onPress} >
@@ -10,13 +10,13 @@ const TextButton = (props) =>
 export default TextButton
 
 const styles = StyleSheet.create({
-    forgetContainer:{
-        width:'80%',
-        alignItems:'flex-end'
+    forgetContainer: {
+        width: '80%',
+        alignItems: 'flex-end'
     },
-    forgetPasswordStyle:{
-        fontSize:12,
-        fontWeight:'bold',
-        color:colors.primaryColor
+    forgetPasswordStyle: {
+        fontSize: 12,
+        fontWeight: 'bold',
+        color: colors.primaryColor
     }
 })

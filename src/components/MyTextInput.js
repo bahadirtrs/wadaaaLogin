@@ -1,6 +1,6 @@
 import { StyleSheet, TextInput, View, Image, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
-import {colors} from '../utils/theme'
+import { colors } from '../utils/theme'
 
 const MyTextInput = (props) => {
     const [passwordHide, setPasswordHide] = useState(props.secureTextEntry)
@@ -14,7 +14,13 @@ const MyTextInput = (props) => {
         <View style={styles.container} >
             <View style={styles.textIcon} >
                 <Image resizeMode='contain' source={props.iconSource} style={styles.iconStyle} />
-                <TextInput {...props} secureTextEntry={passwordHide} placeholderTextColor={colors.primaryColor} autoCapitalize='none' style={styles.textInput} />
+                <TextInput
+                    {...props}
+                    secureTextEntry={passwordHide}
+                    placeholderTextColor={colors.primaryColor}
+                    autoCapitalize='none'
+                    style={styles.textInput}
+                />
             </View>
             {props.secureTextEntry &&
                 <TouchableOpacity onPress={() => setPasswordHide(!passwordHide)} >
@@ -35,7 +41,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '80%',
         borderRadius: 10,
-        backgroundColor: '#f1f1f1',
+        backgroundColor: '#e8e8e8',
         margin: 10,
         paddingHorizontal: 10
     },
@@ -44,9 +50,10 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     textInput: {
-        padding: 15,
+        padding: 17,
         fontWeight: 'bold',
         width: '85%',
+        color: colors.primaryColor
     },
     iconStyle: {
         height: 18,
